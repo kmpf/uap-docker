@@ -10,7 +10,7 @@ docker-build-no-cache:
 		--network host \
 		--no-cache \
 		--tag kmpf/uap \
-		--file Dockerfile.dms.0.0.2 \
+		--file Dockerfile.uap.0.0.2 \
 		. # Current folder is the Docker build context
 
 docker-run:
