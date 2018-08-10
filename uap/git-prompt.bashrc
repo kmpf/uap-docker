@@ -122,20 +122,6 @@ parse_git_branch() {
 }
 export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] \$ "
 
-# {{{
-# Node Completion - Auto-generated, do not touch.
-shopt -s progcomp
-for f in $(command ls ~/.node-completion); do
-  f="$HOME/.node-completion/$f"
-  test -f "$f" && . "$f"
-done
-# }}}
-
-# uap PATH update
-PATH=~/develop/uap:$PATH
-# CloudBioLinux PATH updates
-export PATH=/home/hubert/develop/wms/bcbio/test-installation/tools/bin:$PATH
-
 # gl BASH completion
 complete -C gl -o default gl
 

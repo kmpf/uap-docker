@@ -128,7 +128,6 @@ ENV PATH /home/uap_user/bioinformatic-tools/fetchChromSizes:$PATH
 RUN mkdir -p /home/uap_user/uap
 WORKDIR /home/uap_user/uap
 RUN git clone https://github.com/yigbt/uap.git . && \
-    git checkout -b develop origin/develop && \
     ./bootstrap.sh
 ENV PATH /home/uap_user/uap:$PATH
 
