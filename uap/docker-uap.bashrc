@@ -147,3 +147,5 @@ GIT_PROMPT_ONLY_IN_REPO=0
 GIT_PROMPT_THEME=Solarized # use theme optimized for solarized color scheme
 
 source ~/.bash-git-prompt/gitprompt.sh
+
+cat ~/.welcome_banner
