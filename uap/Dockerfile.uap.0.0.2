@@ -1,7 +1,7 @@
 FROM krallin/ubuntu-tini:16.04
 #FROM phusion/baseimage:0.10.1
 LABEL maintainer.1.name="Alexander Scholz" \
-      maintainer.1.email="alexander.scholz@nodev.de" \
+      maintainer.1.email="alexander.scholz@izi.fraunhofer.de" \
       maintainer.2.name="Christoph Kämpf" \
       maintainer.2.email="christoph.kaempf@izi.fraunhofer.de"
 
@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
     graphviz \
     g++ \
     libncurses5-dev \
+    libz-dev \
     make \
     pigz \
     python-dev \
@@ -39,11 +40,6 @@ RUN apt-get clean && \
 RUN useradd -ms /bin/bash uap_user
 USER uap_user
 
-# Enable git shell completion and advanced styling
-WORKDIR /home/uap_user
-RUN git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1
-COPY git-prompt.bashrc /home/uap_user/.bashrc
-
 ###############################################################################
 # Install required bioinformatic tools
 ###############################################################################
@@ -54,7 +50,7 @@ RUN mkdir -p \
     /home/uap_user/bioinformatic-tools
 
 ###############################################################################
-# Install bowtie2
+# Install bowtie2 (version: 2.2.9)
 ###############################################################################
 
 RUN mkdir -p /home/uap_user/bioinformatic-tools/bowtie2
@@ -67,7 +63,7 @@ RUN wget https://github.com/BenLangmead/bowtie2/releases/download/v2.2.9/bowtie2
 ENV PATH /home/uap_user/bioinformatic-tools/bowtie2/bowtie2-2.2.9:$PATH
 
 ###############################################################################
-# Install bwa
+# Install bwa (version: 0.7.15)
 ###############################################################################
 
 RUN mkdir -p /home/uap_user/bioinformatic-tools/bwa
@@ -80,7 +76,7 @@ RUN make
 ENV PATH /home/uap_user/bioinformatic-tools/bwa/bwa-0.7.15:$PATH
 
 ###############################################################################
-# Install: samtools
+# Install samtools (version: 1.3.1)
 ###############################################################################
 
 RUN mkdir -p /home/uap_user/bioinformatic-tools/samtools
@@ -100,7 +96,7 @@ USER uap_user
 ENV PATH /home/uap_user/bioinformatic-tools/samtools/samtools-1.3.1:$PATH
 
 ###############################################################################
-# Install segemehl
+# Install segemehl (version: 0.2.0)
 ###############################################################################
 
 RUN mkdir -p /home/uap_user/bioinformatic-tools/segemehl
@@ -143,7 +139,9 @@ RUN mkdir -p \
     /home/uap_user/uap/example-configurations/genomes/animalia/chordata/mammalia/primates/homo_sapiens/hg19/chromosome_sizes \
     /home/uap_user/uap/example-configurations/genomes/animalia/chordata/mammalia/primates/homo_sapiens/hg19/fasta \
     /home/uap_user/uap/example-configurations/example-out/2007-Barski_et_al_download \
-    /home/uap_user/uap/example-configurations/example-out/2007-Barski_et_al
+    /home/uap_user/uap/example-configurations/example-out/2007-Barski_et_al \
+    /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al_download \
+    /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al
 
 WORKDIR /home/uap_user/uap/example-configurations/
 RUN uap index_homo_sapiens_hg19_chr21.yaml run-locally
@@ -151,6 +149,11 @@ RUN uap download_human_gencode_release.yaml run-locally
 
 # switch to user and directory
 WORKDIR /home/uap_user
+# Enable git shell completion and advanced styling
+RUN git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1
+COPY docker-uap.bashrc /home/uap_user/.bashrc
+COPY docker-uap.README /home/uap_user/README
+
 
 # Use baseimage-docker's init system.
 ENTRYPOINT ["/usr/local/bin/tini", "--", "/bin/bash"]
