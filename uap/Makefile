@@ -14,7 +14,7 @@ docker-build-no-cache:
 		. # Current folder is the Docker build context
 
 docker-run:
-	docker run \
+	@docker run \
 		--interactive \
 		--name uap \
 		--network host \
