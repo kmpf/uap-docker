@@ -1,0 +1,42 @@
+FROM kmpf/uap:1.0.0
+LABEL maintainer.1.name="Alexander Scholz" \
+      maintainer.1.email="alexander.scholz@izi.fraunhofer.de" \
+      maintainer.2.name="Christoph Kämpf" \
+      maintainer.2.email="christoph.kaempf@izi.fraunhofer.de"
+
+
+###############################################################################
+# Run uap workflows
+###############################################################################
+
+WORKDIR /home/uap_user/uap/example-configurations/
+
+# Run workflow 'index_mycoplasma_genitalium_ASM2732v1_genome.yaml'
+RUN mkdir -p /home/uap_user/uap/example-configurations/genomes/bacteria/Mycoplasma_genitalium && \
+    uap index_mycoplasma_genitalium_ASM2732v1_genome.yaml run-locally
+
+# Run workflow 'index_homo_sapiens_hg19_chr21.yaml'
+RUN mkdir -p \
+    /home/uap_user/uap/example-configurations/genomes/animalia/chordata/mammalia/primates/homo_sapiens/hg19/chromosome_sizes \
+    /home/uap_user/uap/example-configurations/genomes/animalia/chordata/mammalia/primates/homo_sapiens/hg19/fasta && \
+    uap index_homo_sapiens_hg19_chr21.yaml run-locally
+
+# Run workflow 'download_human_gencode_release.yaml'
+RUN mkdir -p /home/uap_user/uap/example-configurations/genomes/animalia/chordata/mammalia/primates/homo_sapiens/gencode && \
+    uap download_human_gencode_release.yaml run-locally
+
+# Run workflow 'RNAseq-data-download.yaml'
+RUN mkdir -p /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al_download && \
+    uap RNAseq-data-download.yaml run-locally
+
+# Run workflow 'ChIPseq-data-download-short.yaml'
+RUN mkdir -p /home/uap_user/uap/example-configurations/example-out/2007-Barski_et_al_download && \
+    uap ChIPseq-data-download-short.yaml run-locally
+
+# Create directories for 'ChIPseq-workflow-*.yaml' and 'RNAseq-workflow-*.yaml'
+RUN mkdir -p \
+    /home/uap_user/uap/example-configurations/example-out/2007-Barski_et_al \
+    /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al
+
+# Use baseimage-docker's init system.
+ENTRYPOINT ["/usr/local/bin/tini", "--", "/bin/bash"]
