@@ -143,21 +143,21 @@ RUN mkdir -p \
     uap index_homo_sapiens_hg19_chr21.yaml run-locally
 
 # Run workflow 'download_human_gencode_release.yaml'
-RUN mkdir -p /home/uap_user/uap/example-configurations/genomes/animalia/chordata/mammalia/primates/homo_sapiens/gencode && \
-    uap download_human_gencode_release.yaml run-locally
+ RUN mkdir -p /home/uap_user/uap/example-configurations/genomes/animalia/chordata/mammalia/primates/homo_sapiens/gencode && \
+    uap download_human_gencode_release_v19.yaml run-locally
 
 # Run workflow 'RNAseq-data-download.yaml'
-RUN mkdir -p /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al_download && \
-    uap RNAseq-data-download.yaml run-locally
+# RUN mkdir -p /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al_download && \
+#    uap RNAseq-data-download.yaml run-locally
 
 # Run workflow 'ChIPseq-data-download-short.yaml'
-RUN mkdir -p /home/uap_user/uap/example-configurations/example-out/2007-Barski_et_al_download && \
-    uap ChIPseq-data-download-short.yaml run-locally
+# RUN mkdir -p /home/uap_user/uap/example-configurations/example-out/2007-Barski_et_al_download && \
+#    uap ChIPseq-data-download-short.yaml run-locally
 
 # Create directories for 'ChIPseq-workflow-*.yaml' and 'RNAseq-workflow-*.yaml'
-RUN mkdir -p \
-    /home/uap_user/uap/example-configurations/example-out/2007-Barski_et_al \
-    /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al
+# RUN mkdir -p \
+#    /home/uap_user/uap/example-configurations/example-out/2007-Barski_et_al \
+#    /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al
 
 ###############################################################################
 # Prepare bash prompt, README and welcome banner
