@@ -22,29 +22,53 @@ docker-run-1.0.0:
 		--tty \
 		kmpf/uap:1.0.0 ${ARGS}
 
-docker-build-1.0.0-downloads:
+docker-build-1.0.0-ChIPseq:
 	docker build \
 		--network host \
-		--tag kmpf/uap:1.0.0-downloads \
-		--file Dockerfile.uap.1.0.0-downloads \
+		--tag kmpf/uap:1.0.0-ChIPseq \
+		--file Dockerfile.uap.1.0.0-ChIPseq \
 		. # Current folder is the Docker build context
 
-docker-build-no-cache-1.0.0-downloads:
+docker-build-no-cache-1.0.0-ChIPseq:
 	docker build \
 		--network host \
 		--no-cache \
-		--tag kmpf/uap:1.0.0-downloads \
-		--file Dockerfile.uap.1.0.0-downloads \
+		--tag kmpf/uap:1.0.0-ChIPseq \
+		--file Dockerfile.uap.1.0.0-ChIPseq \
 		. # Current folder is the Docker build context
 
-docker-run-1.0.0-downloads:
+docker-run-1.0.0-ChIPseq:
 	@docker run \
 		--interactive \
-		--name uap \
+		--name uap-ChIPseq \
 		--network host \
 		--rm \
 		--tty \
-		kmpf/uap:1.0.0-downloads ${ARGS}
+		kmpf/uap:1.0.0-ChIPseq ${ARGS}
+
+docker-build-1.0.0-RNAseq:
+	docker build \
+		--network host \
+		--tag kmpf/uap:1.0.0-RNAseq \
+		--file Dockerfile.uap.1.0.0-RNAseq \
+		. # Current folder is the Docker build context
+
+docker-build-no-cache-1.0.0-RNAseq:
+	docker build \
+		--network host \
+		--no-cache \
+		--tag kmpf/uap:1.0.0-RNAseq \
+		--file Dockerfile.uap.1.0.0-RNAseq \
+		. # Current folder is the Docker build context
+
+docker-run-1.0.0-RNAseq:
+	@docker run \
+		--interactive \
+		--name uap-RNAseq \
+		--network host \
+		--rm \
+		--tty \
+		kmpf/uap:1.0.0-RNAseq ${ARGS}
 
 # Push created DMS docker image to registry
 docker-push:
