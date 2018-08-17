@@ -91,7 +91,8 @@ ENV PATH /home/uap_user/bioinformatic-tools/bwa/bwa-0.7.15:$PATH
 RUN mkdir -p /home/uap_user/bioinformatic-tools/cufflinks
 WORKDIR /home/uap_user/bioinformatic-tools/cufflinks
 RUN wget http://cole-trapnell-lab.github.io/cufflinks/assets/downloads/cufflinks-2.2.1.Linux_x86_64.tar.gz && \
-    tar -xzvf cufflinks-2.2.1.Linux_x86_64.tar.gz
+    tar -xzvf cufflinks-2.2.1.Linux_x86_64.tar.gz && \
+    rm cufflinks-2.2.1.Linux_x86_64.tar.gz
 ENV PATH /home/uap_user/bioinformatic-tools/cufflinks/cufflinks-2.2.1.Linux_x86_64:$PATH
 
 ###############################################################################
@@ -118,7 +119,8 @@ ENV PATH /home/uap_user/bioinformatic-tools/fastqc/FastQC:$PATH
 RUN mkdir -p /home/uap_user/bioinformatic-tools/fastx-toolkit
 WORKDIR /home/uap_user/bioinformatic-tools/fastx-toolkit
 RUN wget http://hannonlab.cshl.edu/fastx_toolkit/fastx_toolkit_0.0.13_binaries_Linux_2.6_amd64.tar.bz2 && \
-    tar -xjvf fastx_toolkit_0.0.13_binaries_Linux_2.6_amd64.tar.bz2
+    tar -xjvf fastx_toolkit_0.0.13_binaries_Linux_2.6_amd64.tar.bz2 && \
+    rm fastx_toolkit_0.0.13_binaries_Linux_2.6_amd64.tar.bz2
 ENV PATH /home/uap_user/bioinformatic-tools/fastx-toolkit/bin:$PATH
 
 ###############################################################################
