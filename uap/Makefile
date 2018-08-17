@@ -22,29 +22,29 @@ docker-run-1.0.0:
 		--tty \
 		kmpf/uap:1.0.0 ${ARGS}
 
-docker-build-downloads:
+docker-build-1.0.0-downloads:
 	docker build \
 		--network host \
-		--tag kmpf/uap:1.0.0+downloads \
+		--tag kmpf/uap:1.0.0-downloads \
 		--file Dockerfile.uap.1.0.0-downloads \
 		. # Current folder is the Docker build context
 
-docker-build-no-cache-downloads:
+docker-build-no-cache-1.0.0-downloads:
 	docker build \
 		--network host \
 		--no-cache \
-		--tag kmpf/uap:1.0.0+downloads \
+		--tag kmpf/uap:1.0.0-downloads \
 		--file Dockerfile.uap.1.0.0-downloads \
 		. # Current folder is the Docker build context
 
-docker-run-downloads:
+docker-run-1.0.0-downloads:
 	@docker run \
 		--interactive \
 		--name uap \
 		--network host \
 		--rm \
 		--tty \
-		kmpf/uap:1.0.0+downloads ${ARGS}
+		kmpf/uap:1.0.0-downloads ${ARGS}
 
 # Push created DMS docker image to registry
 docker-push:
