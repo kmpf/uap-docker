@@ -73,6 +73,6 @@ docker-run-1.0.0-RNAseq:
 # Push created DMS docker image to registry
 docker-push:
 	docker login
-	docker push kmpf/uap
+	docker push kmpf/uap:1.0.0
 
 .PHONY: docker-build docker-build-no-cache docker-run docker-push
