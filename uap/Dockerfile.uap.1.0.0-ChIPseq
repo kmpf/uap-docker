@@ -26,4 +26,5 @@ RUN mkdir -p \
     /home/uap_user/uap/example-configurations/example-out/2007-Barski_et_al
 
 # Use baseimage-docker's init system.
+WORKDIR /home/uap_user/
 ENTRYPOINT ["/usr/local/bin/tini", "--", "/bin/bash"]
