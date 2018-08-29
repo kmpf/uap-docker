@@ -21,6 +21,10 @@ WORKDIR /home/uap_user/uap/example-configurations/
 RUN mkdir -p /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al_download && \
     uap RNAseq-data-download.yaml run-locally
 
+# Run workflow 'download_human_gencode_release.yaml'
+RUN mkdir -p /home/uap_user/uap/example-configurations/genomes/animalia/chordata/mammalia/primates/homo_sapiens/gencode && \
+    uap download_human_gencode_release.yaml run-locally
+
 # Create directories for 'ChIPseq-workflow-*.yaml' and 'RNAseq-workflow-*.yaml'
 RUN mkdir -p \
     /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al
