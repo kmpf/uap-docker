@@ -9,7 +9,13 @@ LABEL maintainer.1.name="Alexander Scholz" \
 ###############################################################################
 
 WORKDIR /home/uap_user/uap/
-RUN git pull origin master
+# Update master
+RUN git checkout master && \
+    git pull origin master
+
+# Update release
+RUN git checkout release && \
+    git pull origin release
 
 ###############################################################################
 # Run uap workflows
@@ -23,7 +29,11 @@ RUN mkdir -p /home/uap_user/uap/example-configurations/example-out/2007-Barski_e
 
 # Create directories necessary for 'ChIPseq-workflow-short.yaml'
 RUN mkdir -p \
+    /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al \
     /home/uap_user/uap/example-configurations/example-out/2007-Barski_et_al
+
+# Adjust GIT_PROMPT_START
+RUN sed -E -i "s/(GIT_PROMPT_START=).*$/\1\"uap ChIPseq Docker container \(_LAST_COMMAND_INDICATOR_\)\\\n\\\w\"/" /home/uap_user/.bashrc
 
 # Use baseimage-docker's init system.
 WORKDIR /home/uap_user/

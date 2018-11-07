@@ -9,7 +9,13 @@ LABEL maintainer.1.name="Alexander Scholz" \
 ###############################################################################
 
 WORKDIR /home/uap_user/uap/
-RUN git pull origin master
+# Update master
+RUN git checkout master && \
+    git pull origin master
+
+# Update release
+RUN git checkout release && \
+    git pull origin release
 
 ###############################################################################
 # Run uap workflows
@@ -21,13 +27,17 @@ WORKDIR /home/uap_user/uap/example-configurations/
 RUN mkdir -p /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al_download && \
     uap RNAseq-data-download.yaml run-locally
 
-# Run workflow 'download_human_gencode_release.yaml'
+# Run workflow 'download_human_gencode_release_v19.yaml'
 RUN mkdir -p /home/uap_user/uap/example-configurations/genomes/animalia/chordata/mammalia/primates/homo_sapiens/gencode && \
-    uap download_human_gencode_release.yaml run-locally
+    uap download_human_gencode_release_v19.yaml run-locally
 
 # Create directories for 'ChIPseq-workflow-*.yaml' and 'RNAseq-workflow-*.yaml'
 RUN mkdir -p \
-    /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al
+    /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al \
+    /home/uap_user/uap/example-configurations/example-out/2007-Barski_et_al
+
+# Adjust GIT_PROMPT_START
+RUN sed -E -i "s/(GIT_PROMPT_START=).*$/\1"uap RNAseq Docker container (_LAST_COMMAND_INDICATOR_)\\\n\\\w\"/" /home/uap_user/.bashrc
 
 # Use baseimage-docker's init system.
 WORKDIR /home/uap_user/
