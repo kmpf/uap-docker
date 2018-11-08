@@ -219,6 +219,10 @@ RUN mkdir -p \
     /home/uap_user/uap/example-configurations/genomes/animalia/chordata/mammalia/primates/homo_sapiens/hg19/fasta && \
     uap index_homo_sapiens_hg19_chr21.yaml run-locally
 
+RUN mkdir -p \
+    /home/uap_user/uap/example-configurations/genomes/animalia/chordata/mammalia/primates/homo_sapiens/gencode \
+    /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al_download
+
 ###############################################################################
 # Prepare bash prompt, README and welcome banner
 ###############################################################################
