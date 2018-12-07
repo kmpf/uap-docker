@@ -1,0 +1,32 @@
+FROM yigbt/uap:1.0.0
+LABEL maintainer.1.name="Alexander Scholz" \
+      maintainer.1.email="alexander.scholz@izi.fraunhofer.de" \
+      maintainer.2.name="Christoph Kämpf" \
+      maintainer.2.email="christoph.kaempf@izi.fraunhofer.de"
+
+###############################################################################
+# Update uap repo
+###############################################################################
+
+WORKDIR /home/uap_user/uap/
+# Update master
+RUN git checkout master && \
+    git pull origin master
+
+# Update release
+RUN git checkout release && \
+    git pull origin release
+
+###############################################################################
+# Run uap workflows
+###############################################################################
+
+WORKDIR /home/uap_user/uap/example-configurations/
+
+# Run workflow 'RNAseq-data-download.yaml'
+RUN mkdir -p /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al_download && \
+    uap RNAseq-data-download.yaml run-locally
+
+# Use baseimage-docker's init system.
+WORKDIR /home/uap_user/
+ENTRYPOINT ["/usr/local/bin/tini", "--", "/bin/bash"]
