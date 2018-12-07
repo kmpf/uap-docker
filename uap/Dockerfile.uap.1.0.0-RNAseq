@@ -1,4 +1,4 @@
-FROM kmpf/uap:1.0.0
+FROM yigbt/uap:1.0.0-RNAseq-data-download
 LABEL maintainer.1.name="Alexander Scholz" \
       maintainer.1.email="alexander.scholz@izi.fraunhofer.de" \
       maintainer.2.name="Christoph Kämpf" \
@@ -24,8 +24,8 @@ RUN git checkout release && \
 WORKDIR /home/uap_user/uap/example-configurations/
 
 # Run workflow 'RNAseq-data-download.yaml'
-RUN mkdir -p /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al_download && \
-    uap RNAseq-data-download.yaml run-locally
+#RUN mkdir -p /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al_download && \
+#    uap RNAseq-data-download.yaml run-locally
 
 # Run workflow 'download_human_gencode_release_v19.yaml'
 RUN mkdir -p /home/uap_user/uap/example-configurations/genomes/animalia/chordata/mammalia/primates/homo_sapiens/gencode && \
@@ -37,7 +37,7 @@ RUN mkdir -p \
     /home/uap_user/uap/example-configurations/example-out/2007-Barski_et_al
 
 # Adjust GIT_PROMPT_START
-RUN sed -E -i "s/(GIT_PROMPT_START=).*$/\1"uap RNAseq Docker container (_LAST_COMMAND_INDICATOR_)\\\n\\\w\"/" /home/uap_user/.bashrc
+RUN sed -E -i "s/(GIT_PROMPT_START=).*$/\1\"uap RNAseq Docker container \(_LAST_COMMAND_INDICATOR_\)\\\n\\\w\"/" /home/uap_user/.bashrc
 
 # Use baseimage-docker's init system.
 WORKDIR /home/uap_user/

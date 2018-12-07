@@ -1,4 +1,4 @@
-FROM kmpf/uap:1.0.0
+FROM yigbt/uap:1.0.0
 LABEL maintainer.1.name="Alexander Scholz" \
       maintainer.1.email="alexander.scholz@izi.fraunhofer.de" \
       maintainer.2.name="Christoph Kämpf" \
