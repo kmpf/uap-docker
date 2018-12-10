@@ -1,15 +1,14 @@
 Welcome to the uap Test Container
 =================================
 
-This container is meant to be used as a hands-on experience of uap. If you start
-the container via one of the `make docker-run-*` commands, the container will
-get removed as you leave it. This means downloaded or processed data will be
-lost after logging out of the container!
+This container is meant to be used as a hands-on experience of uap. You can find the uap code repository at https://github.com/yigbt/uap and the documentation at https://readthedocs.org/projects/uap/.
+
+If you start the container via one of the `make docker-run-*` commands, the container will get removed as you leave it. This means downloaded or processed data will be lost after logging out of the container!
 
 Installed Bioinformatic Tools
 -----------------------------
 
-It contains installations of the following tools:
+The uap test container contains installations of the following tools:
 
 Tool     | Version | Path to Executable
 -------- | ------- | ------------------
@@ -18,6 +17,7 @@ bwa      | 0.7.15  | /home/uap_user/bioinformatic-tools/bwa/bwa-0.7.15/bwa
 samtools | 1.3.1   | /home/uap_user/bioinformatic-tools/samtools/samtools-1.3.1/samtools
 segemehl | 0.2.0   | /home/uap_user/bioinformatic-tools/segemehl/segemehl_0_2_0/segemehl/segemehl.x
 
+These tools are required to execute the available example workflows.
 
 uap Folders
 -----------
@@ -51,16 +51,18 @@ data. Users can start workflows that download data such as:
 * download_human_gencode_release_v19.yaml
   * Downloads the human Gencode annotation v19
   * Downloads the human Gencode long non-coding RNA gene annotation v19
+  * the downloaded files are located in `genomes/animalia/chordata/mammalia/primates/homo_sapiens/gencode`
 
 * index_homo_sapiens_hg19_chr21.yaml
   * Downloads the homo sapiens chromosome sizes from UCSC
   * Downloads the homo sapiens chromosome 21 FASTA sequence from UCSC
+  * the downloaded files are located in `genomes/animalia/chordata/mammalia/primates/homo_sapiens/hg19`
   * Generates the index for bowtie2 for chromosome 21
   * Generates the index for bwa for chromosome 21
   * Generates the fasta index for chromosome 21
 
 * index_mycoplasma_genitalium_ASM2732v1_genome.yaml
-  * Downloads the mycoplasma genitalium genome from NCBIs Genbank
+  * Downloads the mycoplasma genitalium genome from NCBIs Genbank, these files are located in `genomes/bacteria/Mycoplasma_genitalium/`
   * Generates the index for bowtie2 for that genome
   * Generates the index for bwa for that genome
   * Generates the index for segemehl for that genome
