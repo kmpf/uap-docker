@@ -49,35 +49,35 @@ The uap:1.0.0 container contains only an installation of uap and no external
 data. Users can start workflows that download data such as:
 
 * download_human_gencode_release_v19.yaml
-** Downloads the human Gencode annotation v19
-** Downloads the human Gencode long non-coding RNA gene annotation v19
+  * Downloads the human Gencode annotation v19
+  * Downloads the human Gencode long non-coding RNA gene annotation v19
 
 * index_homo_sapiens_hg19_chr21.yaml
-** Downloads the homo sapiens chromosome sizes from UCSC
-** Downloads the homo sapiens chromosome 21 FASTA sequence from UCSC
-** Generates the index for bowtie2 for chromosome 21
-** Generates the index for bwa for chromosome 21
-** Generates the fasta index for chromosome 21
+  * Downloads the homo sapiens chromosome sizes from UCSC
+  * Downloads the homo sapiens chromosome 21 FASTA sequence from UCSC
+  * Generates the index for bowtie2 for chromosome 21
+  * Generates the index for bwa for chromosome 21
+  * Generates the fasta index for chromosome 21
 
 * index_mycoplasma_genitalium_ASM2732v1_genome.yaml
-** Downloads the mycoplasma genitalium genome from NCBIs Genbank
-** Generates the index for bowtie2 for that genome
-** Generates the index for bwa for that genome
-** Generates the index for segemehl for that genome
-** Generates the fasta index for that genome
+  * Downloads the mycoplasma genitalium genome from NCBIs Genbank
+  * Generates the index for bowtie2 for that genome
+  * Generates the index for bwa for that genome
+  * Generates the index for segemehl for that genome
+  * Generates the fasta index for that genome
 
 * ChIPseq-data-download-short.yaml
-** Downloads the ChIPseq data of H3K4me1 and H3K4me3 published in
+  * Downloads the ChIPseq data of H3K4me1 and H3K4me3 published in
    "High-Resolution Profiling of Histone Methylations in the Human Genome"
    Barski et al., Cell, 2007
 
 * ChIPseq-data-download-full.yaml
-** Downloads the complete ChIPseq data published in
+  * Downloads the complete ChIPseq data published in
    "High-Resolution Profiling of Histone Methylations in the Human Genome"
    Barski et al., Cell, 2007
 
 * RNAseq-data-download.yaml
-** Downloads the RNAseq and supplementary data published in
+  * Downloads the RNAseq and supplementary data published in
    "Targeted sequencing for gene discovery and quantification using RNA CaptureSeq"
    Mercer et al., Nature protocols, 2014
 
@@ -93,10 +93,10 @@ uap  | manager
 
 
 
-uap directory: /home/uap_user/uap
-tools directory: /home/uap_user/bioinformatic-tools
+uap directory: `/home/uap_user/uap`
+tools directory: `/home/uap_user/bioinformatic-tools`
 
 
-You will now be dropped out to: /home/uap_user/
+You will now be dropped out to: `/home/uap_user/`
 
 Have fun!
