@@ -10,12 +10,21 @@ Installed Bioinformatic Tools
 
 The uap test container contains installations of the following tools:
 
-Tool     | Version | Path to Executable
--------- | ------- | ------------------
-bowtie2  | 2.2.9   | /home/uap_user/bioinformatic-tools/bowtie2/bowtie2-2.2.9/bowtie2
-bwa      | 0.7.15  | /home/uap_user/bioinformatic-tools/bwa/bwa-0.7.15/bwa
-samtools | 1.3.1   | /home/uap_user/bioinformatic-tools/samtools/samtools-1.3.1/samtools
-segemehl | 0.2.0   | /home/uap_user/bioinformatic-tools/segemehl/segemehl_0_2_0/segemehl/segemehl.x
+Tool            | Version | Path to Executable
+--------------- | ------- | ------------------
+bowtie2         | 2.2.9   | /home/uap_user/bioinformatic-tools/bowtie2/bowtie2-2.2.9/bowtie2
+bwa             | 0.7.15  | /home/uap_user/bioinformatic-tools/bwa/bwa-0.7.15/bwa
+cufflinks       | 2.2.1   | /home/uap_user/bioinformatic-tools/cufflinks/cufflinks-2.2.1.Linux_x86_64/cufflinks
+cutadapt        | current | installed with pip, executable is available anywhere
+FastQC          | 0.11.7  | /home/uap_user/bioinformatic-tools/fastqc/FastQC/fastqc
+Fastx-Toolkit   | 0.0.13  | /home/uap_user/bioinformatic-toolsfastx-toolkit/bin/*
+fetchChromSizes | current | /home/uap_user/bioinformatic-tools/fetchChromSizes/fetchChromSizes
+HTSeq           | current | installed with pip, executable is available anywhere
+MACS2           | current | installed with pip, executable is available anywhere
+picard-tools    | current | installed with repository, executable is available anywhere
+samtools        | 1.3.1   | /home/uap_user/bioinformatic-tools/samtools/samtools-1.3.1/samtools
+segemehl        | 0.2.0   | /home/uap_user/bioinformatic-tools/segemehl/segemehl_0_2_0/segemehl/segemehl.x
+tophat2         | 2.1.1   | /home/uap_user/bioinformatic-tools/tophat2/tophat-2.1.1.Linux_x86_64/tophat2
 
 These tools are required to execute the available example workflows.
 
