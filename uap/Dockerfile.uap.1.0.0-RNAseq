@@ -23,6 +23,10 @@ RUN git checkout release && \
 
 WORKDIR /home/uap_user/uap/example-configurations/
 
+# Run workflow 'RNAseq-data-download.yaml'
+RUN mkdir -p /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al_download && \
+    uap RNAseq-data-download.yaml run-locally
+
 # Run workflow 'download_human_gencode_release_v19.yaml'
 RUN mkdir -p /home/uap_user/uap/example-configurations/genomes/animalia/chordata/mammalia/primates/homo_sapiens/gencode && \
     uap download_human_gencode_release_v19.yaml run-locally
