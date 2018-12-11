@@ -27,8 +27,10 @@ WORKDIR /home/uap_user/uap/example-configurations/
 RUN mkdir -p /home/uap_user/uap/example-configurations/genomes/animalia/chordata/mammalia/primates/homo_sapiens/gencode && \
     uap download_human_gencode_release_v19.yaml run-locally
 
-# Create directories for 'RNAseq-workflow-*.yaml'
-RUN mkdir -p /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al
+# Create directories for 'ChIPseq-workflow-*.yaml' and 'RNAseq-workflow-*.yaml'
+RUN mkdir -p \
+    /home/uap_user/uap/example-configurations/example-out/2014-Mercer_et_al \
+    /home/uap_user/uap/example-configurations/example-out/2007-Barski_et_al
 
 # Adjust GIT_PROMPT_START
 RUN sed -E -i "s/(GIT_PROMPT_START=).*$/\1\"uap RNAseq Docker container \(_LAST_COMMAND_INDICATOR_\)\\\n\\\w\"/" /home/uap_user/.bashrc
