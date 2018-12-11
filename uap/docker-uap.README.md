@@ -28,7 +28,7 @@ The subfolders are explained in the table below:
 Folder                  | Explanation
 ----------------------- | -----------
 example-configurations/ | Configurations for example workflows
-|_example-out           | Output of example workflows go here
+\|_example-out          | Output of example workflows go here
 cluster/                | Cluster configuration files
 doc/                    | Documentation
 include/steps           | Available processing steps
@@ -42,27 +42,34 @@ uap Workflows
 Depending on the container you started it either already contains the genomic
 and the sequencing data or it only contains the uap installation.
 
-uap:1.0.0
+uap.1.0.0
 *********
 
-The uap:1.0.0 container contains only an installation of uap and no external
-data. Users can start workflows that download data such as:
+This container contains only an installation of uap and the described bioinformatic tools. Users can start workflows that download data such as:
 
 * download_human_gencode_release_v19.yaml
   * Downloads the human Gencode annotation v19
   * Downloads the human Gencode long non-coding RNA gene annotation v19
-  * the downloaded files are located in `genomes/animalia/chordata/mammalia/primates/homo_sapiens/gencode`
+  * the downloaded files are located in `example-configurations/genomes/animalia/chordata/mammalia/primates/homo_sapiens/gencode`
 
 * index_homo_sapiens_hg19_chr21.yaml
   * Downloads the homo sapiens chromosome sizes from UCSC
   * Downloads the homo sapiens chromosome 21 FASTA sequence from UCSC
-  * the downloaded files are located in `genomes/animalia/chordata/mammalia/primates/homo_sapiens/hg19`
+  * the downloaded files are located in `example-configurations/genomes/animalia/chordata/mammalia/primates/homo_sapiens/hg19`
   * Generates the index for bowtie2 for chromosome 21
   * Generates the index for bwa for chromosome 21
   * Generates the fasta index for chromosome 21
 
+* index_homo_sapiens_hg19_genome.yaml
+  * Downloads the homo sapiens chromosome sizes from UCSC
+  * Downloads the full homo sapiens chromosome set as FASTA sequences from UCSC
+  * the downloaded files are located in `example-configurations/genomes/animalia/chordata/mammalia/primates/homo_sapiens/hg19`
+  * Generates the index for bowtie2 for the full chromosome set
+  * Generates the index for bwa for the full chromosome set
+  * Generates the fasta index for the full chromosome set
+  
 * index_mycoplasma_genitalium_ASM2732v1_genome.yaml
-  * Downloads the mycoplasma genitalium genome from NCBIs Genbank, these files are located in `genomes/bacteria/Mycoplasma_genitalium/`
+  * Downloads the mycoplasma genitalium genome from NCBIs Genbank, these files are located in `example-configurations/genomes/bacteria/Mycoplasma_genitalium/`
   * Generates the index for bowtie2 for that genome
   * Generates the index for bwa for that genome
   * Generates the index for segemehl for that genome
@@ -72,16 +79,28 @@ data. Users can start workflows that download data such as:
   * Downloads the ChIPseq data of H3K4me1 and H3K4me3 published in
    "High-Resolution Profiling of Histone Methylations in the Human Genome"
    Barski et al., Cell, 2007
+  * the downloaded files are located in `example-configurations/example-out/2007-Barski_et_al_download`
 
 * ChIPseq-data-download-full.yaml
   * Downloads the complete ChIPseq data published in
    "High-Resolution Profiling of Histone Methylations in the Human Genome"
    Barski et al., Cell, 2007
+  * the downloaded files are located in `example-configurations/example-out/2007-Barski_et_al_download`
 
 * RNAseq-data-download.yaml
   * Downloads the RNAseq and supplementary data published in
    "Targeted sequencing for gene discovery and quantification using RNA CaptureSeq"
    Mercer et al., Nature protocols, 2014
+  * the downloaded files are located in `example-configurations/example-out/2014-Mercer_et_al_download`
+
+uap.1.0.0-ChIPseq
+*****************
+This container contains the uap installation, the described bioinformatic tools and the data which are required for the example workflows ChIPseq-workflow-full.yaml and ChIPseq-workflow-short.yaml.
+
+
+uap.1.0.0-RNAseq
+****************
+This container contains the uap installation, the described bioinformatic tools and the data which are required for the example workflows RNAseq-workflow-full.yaml and RNAseq-workflow-short.yaml.
 
 
 User Information
