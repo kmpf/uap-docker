@@ -233,7 +233,7 @@ WORKDIR /home/uap_user
 # Enable git shell completion and advanced styling
 RUN git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1
 COPY docker-uap.bashrc /home/uap_user/.bashrc
-COPY docker-uap.README /home/uap_user/README
+COPY docker-uap.README.md /home/uap_user/README
 COPY docker-uap.welcome_banner /home/uap_user/.welcome_banner
 
 # Enable GIT_PROMPT_START
