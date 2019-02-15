@@ -26,7 +26,7 @@ docker-build-1.0.0-ChIPseq:
 	docker build \
 		--network host \
 		--tag yigbt/uap:1.0.0-ChIPseq \
-		--file Dockerfile.uap.1.0.0-ChIPseq \
+		--file Dockerfile.uap.1.0.0-ChIPseq-short \
 		. # Current folder is the Docker build context
 
 docker-build-no-cache-1.0.0-ChIPseq:
@@ -34,7 +34,7 @@ docker-build-no-cache-1.0.0-ChIPseq:
 		--network host \
 		--no-cache \
 		--tag yigbt/uap:1.0.0-ChIPseq \
-		--file Dockerfile.uap.1.0.0-ChIPseq \
+		--file Dockerfile.uap.1.0.0-ChIPseq-short \
 		. # Current folder is the Docker build context
 
 docker-run-1.0.0-ChIPseq:
