@@ -10,12 +10,8 @@ LABEL maintainer.1.name="Alexander Scholz" \
 
 WORKDIR /home/uap_user/uap/
 # Update master
-RUN git checkout master && \
-    git pull origin master
-
-# Update release
-RUN git checkout release && \
-    git pull origin release
+RUN git checkout uap-v1.1 && \
+    git pull origin uap-v1.1
 
 ###############################################################################
 # Run uap workflows
