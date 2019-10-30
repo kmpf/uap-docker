@@ -199,7 +199,7 @@ ENV PATH /home/uap_user/bioinformatic-tools/tophat2/tophat-2.1.1.Linux_x86_64:$P
 RUN mkdir -p /home/uap_user/uap
 WORKDIR /home/uap_user/uap
 RUN git clone https://github.com/yigbt/uap.git . && \
-    git checkout release && \
+    git checkout uap-v1.1 && \
     ./bootstrap.sh
 ENV PATH /home/uap_user/uap:$PATH
 
